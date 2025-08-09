@@ -1,0 +1,23 @@
+# 영역 선형 차트
+
+영역 선형 차트는 기본 선형 차트와 유사합니다. 둘 다 시간에 따른 데이터의 추세를 설명합니다. 차이점은 영역 선형 차트의 채우기 색상과 질감이 데이터 볼륨을 나타내는 표면을 만든다는 것입니다. 선형 차트의 경우, 채우기 영역은 사용자의 주의를 전체 값의 추세에 집중시킬 수 있습니다. 따라서 영역 선형 차트는 주로 개별 값이 아닌 추세의 크기를 전달하는 데 사용됩니다.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=area-simple"></iframe>
+
+## 영역 선형 차트 사용 제안
+
+1. 영역 선형 차트는 채우기를 사용하여 데이터를 나타냅니다. 한 차트에 여러 레이어가 있을 때, 데이터가 겹치지 않도록 하세요. 겹침을 피할 수 없다면 차트를 읽기 쉽게 만들기 위해 색상과 불투명도를 적절한 값으로 정의하세요.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xHJ-4tL84M"></iframe>
+
+2. 영역 선형 차트는 2개 또는 3개 범주의 데이터를 표시하는 데 강력합니다. 4개 이상의 그룹을 보여주지 않는 것을 제안합니다. 그렇지 않으면 다음 차트처럼 데이터를 식별하기에는 너무 많은 데이터 시리즈가 있을 것입니다. 따라서 한 차트에 3개 이상의 시리즈를 가진 영역 선형 차트를 피해야 합니다.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xHyNDxOo4M"></iframe>
+
+3. 데이터 값 사이에 경계가 없을 때는 영역 선형 차트를 사용해서는 안 됩니다. 아래에 표시된 것처럼, 첫눈에 3개의 다른 색상이 있다는 것은 익숙합니다.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xSkO64PIEG&v=1"></iframe>

@@ -1,5 +1,6 @@
 import zhPosts from '~/contents/zh/posts.yml'
 import enPosts from '~/contents/en/posts.yml'
+import koPosts from '~/contents/ko/posts.yml'
 import config from '~/configs/config'
 
 export const state = () => ({
@@ -12,7 +13,8 @@ export const state = () => ({
   focusMode: false,
   posts: {
     zh: zhPosts,
-    en: enPosts
+    en: enPosts,
+    ko: koPosts
   },
   config: config
 })

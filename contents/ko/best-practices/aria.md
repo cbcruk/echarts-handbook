@@ -1,0 +1,74 @@
+# 웹 접근성
+
+W3C에서 개발한 [WAI-ARIA](https://www.w3.org/WAI/intro/aria)(Accessible Rich Internet Applications Suite)는 장애인이 웹 콘텐츠와 웹 애플리케이션에 더 쉽게 접근할 수 있도록 하는 방법을 정의합니다.
+
+ECharts 4.0은 이 사양을 준수하며, 차트 구성에 기반하여 지능적으로 설명을 생성하여 시각 장애인이 화면 읽기 장치의 도움으로 차트의 내용을 이해할 수 있도록 지원합니다. Apache ECharts 5는 차트 데이터를 색상 외에도 패턴으로 구분할 수 있는 데칼 패턴을 지원하여 색맹인에게 더 나은 경험을 제공합니다.
+
+이 접근성 기능은 기본적으로 비활성화되어 있습니다. [aria.show](${optionPath}aria.show) 값을 `true`로 설정하여 활성화할 수 있습니다.
+
+## 차트 레이블
+
+[aria.show](${optionPath}aria.show)를 `true`로 설정하면, ECharts는 제목, 차트, 데이터 등에 따라 차트의 설명을 자동으로 생성합니다. 사용자는 구성 객체를 통해 설명을 수동으로 설정할 수도 있습니다.
+
+예제 구성 객체:
+
+```js
+option = {
+  aria: {
+    show: true
+  },
+  title: {
+    text: 'Referrer of a User',
+    x: 'center'
+  },
+  series: [
+    {
+      name: 'Referrer',
+      type: 'pie',
+      data: [
+        { value: 335, name: 'Direct Visit' },
+        { value: 310, name: 'Email Marketing' },
+        { value: 234, name: 'Union Ad' },
+        { value: 135, name: 'Video Ad' },
+        { value: 1548, name: 'Search Engine' }
+      ]
+    }
+  ]
+};
+```
+
+<md-example src="doc-example/aria-pie"></md-example>
+
+aria를 활성화하면 차트 HTML에 `aria-label` 속성이 추가됩니다. 화면 읽기 프로그램은 이 속성을 사용하여 내용을 설명합니다. 이 차트는 다음과 같은 설명을 가집니다:
+
+```
+This is a chart about "Referrer of a User" with type Pie chart named Referrer. The data is as follows: the data of Direct Visit is 335,the data of Mail Marketing is 310,the data of Union Ad is 234,the data of Video Ad is 135,the data of Search Engine is 1548.
+```
+
+설정된 언어가 설명을 구성하는 데 사용됩니다.
+
+### 제목 커스터마이징
+
+aria-label은 일반적인 설명으로 시작됩니다. [title.text](${optionPath}title.text)가 존재할 때 사용되는 [aria.general.withTitle](${optionPath}aria.general.withTitle)과 `title.text`가 정의되지 않을 때 사용되는 [aria.general.withoutTitle](${optionPath}aria.general.withoutTitle) 두 가지 템플릿이 있습니다.
+
+`withTitle` 템플릿에서 `{title}` 문자열은 [title.text](${optionPath}title.text)로 대체됩니다. `This is a chart named {title}` 템플릿에서 제목이 `Referrer of a User`인 경우 `This is a chart named Referrer of a User`가 됩니다.
+
+### 설명 커스터마이징
+
+시리즈와 데이터의 설명은 제목 다음에 추가됩니다. 일부 차트의 경우 기본 항목 설명으로는 차트의 모든 정보를 표시할 수 없습니다. 다음 산점도에서는 기본적으로 생성되는 설명에 모든 항목이 포함되지만, 항목의 수가 많아 목록이 너무 길어서 이해하기 어려워 접근성이 떨어집니다.
+
+이러한 경우에는 [aria.description](${optionPath}aria.description) 속성으로 설명을 설정해야 합니다.
+
+### 심화 커스터마이징
+
+aria-label의 모든 부분은 차트의 실제 값으로 대체될 템플릿 변수를 포함할 수 있습니다. 설명 생성 과정에 대한 자세한 정보는 API 문서 [aria.label](${optionPath}aria.label)에서 확인할 수 있습니다.
+
+## 데칼 패턴
+
+또한 Apache ECharts 5는 데이터를 더 구분하기 위해 색상의 보조 표현으로 데칼 패턴 지원을 추가했습니다. `aria.enabled`를 `true`로 설정하고 `aria.decal.show`를 `true`로 설정하면 기본 데칼 스타일이 적용됩니다.
+
+<md-example src="doc-example/aria-decal-simple"></md-example>
+
+데칼 패턴을 커스터마이징해야 하는 경우, [aria.decal.decals](${optionPath}aria.decal.decals)를 사용하여 유연한 데칼 패턴을 구성할 수 있습니다.
+
+자세한 내용은 [ARIA 옵션](${optionPath}aria.decal)을 참조하세요.

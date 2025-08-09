@@ -1,0 +1,46 @@
+# 누적 영역 차트
+
+누적 영역 차트는 특별한 종류의 영역 차트입니다. 같은 구간에서 여러 데이터 시리즈를 비교하는 데 사용됩니다. 영역 차트와 누적 영역 차트의 주요 차이점은 모든 시리즈의 기준이 이전 시리즈 위에 있다는 것입니다. 따라서 선이 측정될 때마다 선 사이의 영역이 색상으로 채워집니다.
+
+여러 시리즈가 있고 각각에 대한 부분-전체 관계를 분석하고 싶다면, 이는 부분 수량이 전체에 기여하는 정도를 반영하므로 누적 영역 차트를 사용할 수 있습니다. 예를 들어, 한 판매자가 총 판매에 기여하는 정도입니다.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xHySthj74z">
+</iframe>
+
+다음은 두 가지 다른 종류의 누적 영역 차트입니다:
+
++ <b>전통적인 누적 차트</b>: 원래 값을 사용하여 누적하고, 전체 과정의 변화를 보여줍니다.
++ <b>백분율 누적 차트</b>: 백분율 누적 차트는 시리즈 간의 관계가 시간에 따라 어떻게 변했는지 보여줍니다. 누적 총계는 이런 종류의 차트에서 초점이 아닙니다. 중요한 것은 전체로서의 시리즈 분포를 보여주는 것입니다.
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xSyBN2i7Vf">
+</iframe>
+
+## 누적 영역 차트 사용 제안
+
+1. 영역 차트는 서로 가까운 많은 시리즈의 데이터를 표시할 수 없습니다. 차트를 읽기 어렵게 만들 것입니다:
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xHyNDxOo4M">
+</iframe>
+
+같은 시리즈로 누적 막대 차트가 더 잘 작동합니다:
+
+<iframe max-width="830" width="100%" height="400" 
+src="https://gallery.echartsjs.com/view-lite.html?cid=xSyBN2i7Vf">
+</iframe>
+
+<div class="article-look-outside">
+	<div class="article-look-inside" style="padding-bottom:50%">
+	    <iframe class="article-look-content"
+	    src="https://gallery.echartsjs.com/view-lite.html?cid=xHyNDxOo4M">
+	    </iframe>
+	</div>
+</div>
+
+2. 누적 막대 차트가 여러 시리즈를 다루는 데 좋지만, 한 차트에 7개 이상 포함하지 않도록 하세요.
+
+3. 누적 막대 차트는 부분과 전체의 관계를 제공하므로 시리즈에 음수 값을 포함해서는 안 됩니다.
+
+4. 더 나은 표시 효과를 얻기 위해 더 큰 값을 차트의 상단에 배치하는 것을 제안합니다.

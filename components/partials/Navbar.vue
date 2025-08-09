@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import zhNav from './Navbar/zh.vue'
+import koNav from './Navbar/ko.vue'
 import enNav from './Navbar/en.vue'
 
 export default Vue.extend({
@@ -12,16 +12,16 @@ export default Vue.extend({
   mounted() {
     const locale = (this as any).$i18n.locale
       // TODO
-    ;(window as any).changeLang = () => {
-      window.location.href = window.location.href.replace(
-        `/${locale}/`,
-        locale === 'zh' ? '/en/' : '/zh/'
-      )
-    }
+      ; (window as any).changeLang = () => {
+        window.location.href = window.location.href.replace(
+          `/${locale}/`,
+          locale === 'ko' ? '/en/' : '/ko/'
+        )
+      }
   },
   computed: {
     navComponent() {
-      return (this as any).$i18n.locale === 'zh' ? zhNav : enNav
+      return (this as any).$i18n.locale === 'ko' ? koNav : enNav
     }
   }
 })

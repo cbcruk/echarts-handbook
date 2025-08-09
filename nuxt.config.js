@@ -26,17 +26,17 @@ export default {
         if (el) {
           el.scrollIntoView &&
             el.scrollIntoView({
-              behavior: 'smooth'
+              behavior: 'smooth',
             })
         }
       } else {
         document.getElementsByClassName('page-main')[0].scrollTo({
           top: 0,
           left: 0,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       }
-    }
+    },
   },
   /*
    ** Headers of the page
@@ -48,7 +48,7 @@ export default {
    */
   loading: {
     color: '#F72C5B',
-    continuous: true
+    continuous: true,
   },
   /*
    ** Global CSS
@@ -69,13 +69,13 @@ export default {
     [
       'nuxt-i18n',
       {
-        locales: ['en', 'zh'],
+        locales: ['en', 'ko'],
         strategy: 'prefix',
         defaultLocale: 'en',
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: 'i18n_redirected',
-          onlyOnRoot: true
+          onlyOnRoot: true,
         },
         vueI18n: {
           fallbackLocale: 'en',
@@ -85,19 +85,26 @@ export default {
               searchHandbook: 'Search Handbook',
               contributorsWithThisDocument: 'Contributors',
               editInThisDocumentTip: 'Edit this Document',
-              editInGithub: 'Edit this page on GitHub'
+              editInGithub: 'Edit this page on GitHub',
             },
             zh: {
               inThisPage: '本页目录',
               searchHandbook: '搜索手册',
               contributorsWithThisDocument: '本文贡献者',
               editInThisDocumentTip: '编辑本文',
-              editInGithub: '在 GitHub 上编辑本页'
-            }
-          }
-        }
-      }
-    ]
+              editInGithub: '在 GitHub 上编辑本页',
+            },
+            ko: {
+              inThisPage: '이 페이지에서',
+              searchHandbook: '핸드북 검색',
+              contributorsWithThisDocument: '기여자',
+              editInThisDocumentTip: '이 문서 편집',
+              editInGithub: 'GitHub에서 이 페이지 편집',
+            },
+          },
+        },
+      },
+    ],
   ],
   /*
    ** Build configuration
@@ -106,8 +113,8 @@ export default {
     postcss: {
       plugins: {
         'postcss-nested': {},
-        'postcss-import': {}
-      }
+        'postcss-import': {},
+      },
     },
 
     extractCSS: {
@@ -121,12 +128,12 @@ export default {
 
       config.module.rules.push({
         test: /\.md$/,
-        use: ['raw-loader']
+        use: ['raw-loader'],
       })
       //github.com/nuxt/nuxt.js/issues/4736#issuecomment-453429870
       https: config.module.rules.push({
         test: /\.ya?ml$/,
-        use: 'js-yaml-loader'
+        use: 'js-yaml-loader',
       })
       // if (ctx.isDev && ctx.isClient) {
       //   config.module.rules.push({
@@ -139,10 +146,10 @@ export default {
       // }
     },
     filenames: {
-      chunk: ({ isDev }) => (isDev ? '[name].js' : 'js/[contenthash].js')
-    }
+      chunk: ({ isDev }) => (isDev ? '[name].js' : 'js/[contenthash].js'),
+    },
   },
   generate: {
-    crawler: true
-  }
+    crawler: true,
+  },
 }

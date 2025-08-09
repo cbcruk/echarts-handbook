@@ -1,0 +1,54 @@
+# SVG 또는 Canvas로 렌더링
+
+대부분의 브라우저 기반 차트 라이브러리는 SVG나 Canvas를 기반 렌더러로 사용합니다. 일반적으로 두 기술은 호환 가능하며 비슷한 효과를 가집니다. 그러나 특정 시나리오와 경우에서는 차이점이 눈에 띨 수 있습니다. 따라서 차트 렌더링에 어떤 기술을 사용할지 결정하는 것은 항상 어려운 선택입니다.
+
+Canvas는 처음부터 ECharts의 렌더러로 사용되어 왔습니다. [v4.0](https://echarts.apache.org/en/changelog.html#v4-0-0) 이후, ECharts는 추가 옵션으로 SVG 렌더러를 제공했습니다. 차트를 초기화할 때 [renderer 파라미터](${mainSitePath}api.html#echarts.init)를 `'canvas'` 또는 `'svg'`로 지정할 수 있습니다.
+
+> SVG와 Canvas는 사용에 있어 상당한 차이가 있습니다. ECharts에서 두 기술을 균등하게 지원하는 것은 기반 라이브러리인 [ZRender](https://github.com/ecomfe/zrender)의 추상화와 구현 덕분입니다.
+
+## 렌더러 선택 방법
+
+일반적으로 Canvas는 많은 수의 요소가 있는 차트(히트맵, 지리적 또는 평행 좌표의 대규모 선형 또는 산점도 등)와 시각적 [효과](${mainSitePath}examples/editor.html?c=lines-bmap-effect)에 더 적합합니다. 하지만 SVG는 중요한 장점이 있습니다: 메모리 사용량이 적고(모바일 기기에서 중요), 확대할 때 흐려지지 않습니다.
+
+렌더러의 선택은 하드웨어 및 소프트웨어 환경, 데이터 양 및 기능 요구사항을 종합적으로 고려하여 결정할 수 있습니다.
+
+- 하드웨어 및 소프트웨어 환경이 좋고 데이터 양이 너무 크지 않은 시나리오에서는 두 렌더러 모두 작동하며 어떤 것을 선택할지 고민할 필요가 없습니다.
+- 환경이 열악하고 최적화가 필요한 성능 문제가 발생하는 시나리오에서는 실험을 통해 어떤 렌더러를 사용할지 결정할 수 있습니다. 예를 들어, 다음과 같은 경험들이 있습니다.
+  - 많은 ECharts 인스턴스를 생성해야 하고 브라우저가 충돌하기 쉬운 상황(Canvas 수가 휴대폰의 용량을 초과하여 메모리 사용량을 증가시키는 것으로 추정)에서는 SVG 렌더러를 사용하여 개선할 수 있습니다. 대체적으로 말하면, 저사양 안드로이드에서 차트가 실행되거나 [LiquidFill 차트](https://ecomfe.github.io/echarts-liquidfill/example/)와 같은 특정 차트를 사용하는 경우 SVG 렌더러가 더 잘 작동할 수 있습니다.
+  - 더 많은 양의 데이터(>1k가 경험값)의 경우, 항상 Canvas 렌더러가 권장됩니다.
+
+우리는 더 나은 최적화를 하기 위해 개발자들의 경험과 시나리오에 대한 [피드백](https://github.com/apache/echarts/issues/new)을 환영합니다.
+
+참고: 현재 일부 특수 효과는 여전히 Canvas에 의존합니다: 예를 들어 [트레일 효과](${optionPath}series-lines.effect), [블렌딩 효과가 있는 히트맵](${mainSitePath}examples/editor.html?c=heatmap-bmap) 등.
+
+[v5.3.0](${lang}/basics/release-note/5-3-0/#new-svg-renderer) 이후, SVG 렌더러는 Virtual DOM을 사용하여 리팩터링되었으며, 성능이 2-10배 향상되었고 특정 시나리오에서는 수십 배까지 향상될 수 있습니다! 자세한 내용은 [#836](https://github.com/ecomfe/zrender/pull/836)를 참조하세요.
+
+## 렌더러 사용 방법
+
+다음과 같이 `echarts`를 완전히 가져오면, SVG 렌더러와 Canvas 렌더러가 이미 자동으로 가져와지고 등록됩니다.
+
+```js
+import * as echarts from 'echarts';
+```
+
+[트리 쉐이킹 가져오기](${lang}/basics/import)를 사용하고 있다면, 필요한 렌더러를 수동으로 가져와야 합니다.
+
+```js
+import * as echarts from 'echarts/core';
+// 필요한 렌더러만 사용할 수 있습니다
+import { SVGRenderer, CanvasRenderer } from 'echarts/renderers';
+
+echarts.use([SVGRenderer, CanvasRenderer]);
+```
+
+그런 다음 차트를 초기화할 때 [renderer 파라미터](${mainSitePath}api.html#echarts.init)를 설정할 수 있습니다.
+
+```js
+// Canvas 렌더러 사용 (기본값)
+var chart = echarts.init(containerDom, null, { renderer: 'canvas' });
+// 다음과 동일
+var chart = echarts.init(containerDom);
+
+// SVG 렌더러 사용
+var chart = echarts.init(containerDom, null, { renderer: 'svg' });
+```

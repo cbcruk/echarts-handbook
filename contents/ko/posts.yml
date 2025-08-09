@@ -1,0 +1,147 @@
+- title: 시작하기
+  dir: get-started
+- title: 기본
+  dir: basics
+  children:
+    - title: ECharts 다운로드
+      dir: download
+    - title: ECharts 가져오기
+      dir: import
+    - title: 리소스
+      dir: resource
+      draft: true
+    # - title: 영감
+    #   dir: inspiration
+    - title: 도움 받기
+      dir: help
+    - title: 새로운 기능
+      dir: release-note
+      children:
+        - title: ECharts 6 기능
+          dir: v6-feature
+- title: 개념
+  dir: concepts
+  children:
+    - title: 차트 컨테이너
+      dir: chart-size
+    - title: 차트 옵션
+      dir: options
+      draft: true
+    - title: 시리즈
+      dir: series
+      draft: true
+    - title: 스타일
+      dir: style
+    - title: 데이터셋
+      dir: dataset
+    - title: 데이터 변환
+      dir: data-transform
+    - title: 좌표계
+      dir: coordinate
+      draft: true
+    - title: 축
+      dir: axis
+    - title: 시각적 매핑
+      dir: visual-map
+    - title: 범례
+      dir: legend
+    - title: 이벤트와 액션
+      dir: event
+- title: 사용법 가이드
+  dir: how-to
+  children:
+    - title: 일반적인 차트
+      dir: chart-types
+      children:
+        - title: 막대 차트
+          dir: bar
+          children:
+            - title: 기본 막대 차트
+              dir: basic-bar
+            - title: 누적 막대 차트
+              dir: stacked-bar
+            - title: 막대 경주 차트
+              dir: bar-race
+            - title: 극좌표 막대 차트
+              dir: polar-bar
+              draft: true
+            - title: 워터폴 차트
+              dir: waterfall
+        - title: 선 차트
+          dir: line
+          children:
+            - title: 기본 선 차트
+              dir: basic-line
+            - title: 누적 선 차트
+              dir: stacked-line
+            - title: 영역 차트
+              dir: area-line
+            - title: 평활화된 선 차트
+              dir: smooth-line
+            - title: 단계 선 차트
+              dir: step-line
+        - title: 원형 차트
+          dir: pie
+          children:
+            - title: 기본 원형 차트
+              dir: basic-pie
+            - title: 도넛 스타일
+              dir: doughnut
+            - title: 장미 스타일
+              dir: rose
+        - title: 산점도
+          dir: scatter
+          children:
+            - title: 기본 산점도
+              dir: basic-scatter
+    - title: 모바일
+      dir: mobile
+      draft: true
+    - title: 크로스 플랫폼
+      dir: cross-platform
+      children:
+        - title: 서버 사이드 렌더링
+          dir: server
+    - title: 데이터
+      dir: data
+      children:
+        - title: 동적 데이터
+          dir: dynamic-data
+        - title: 드릴다운
+          dir: drilldown
+          draft: true
+    - title: 라벨
+      dir: label
+      children:
+        - title: 리치 텍스트
+          dir: rich-text
+    - title: 애니메이션
+      dir: animation
+      children:
+        - title: 데이터 전환
+          dir: transition
+    - title: 인터랙션
+      dir: interaction
+      children:
+        - title: 드래그
+          dir: drag
+        - title: 연결
+          dir: connect
+          draft: true
+        - title: 지능형 포인터 스냅핑
+          dir: coarse-pointer
+- title: 모범 사례
+  dir: best-practices
+  children:
+    - title: 모바일 최적화
+      dir: mobile
+      draft: true
+    - title: Canvas vs. SVG
+      dir: canvas-vs-svg
+    - title: 접근성
+      dir: aria
+- title: 핸드북 편집
+  dir: meta
+  children:
+    - title: 편집 가이드
+      dir: edit-guide

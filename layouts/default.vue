@@ -3,9 +3,7 @@
     <navbar />
 
     <div class="page-main">
-      <div
-        class="page-content handbook-content single-page container-fluid row flex-xl-nowrap"
-      >
+      <div class="page-content handbook-content single-page container-fluid row flex-xl-nowrap">
         <sidebar />
 
         <div class="bd-content col-sm-7 pl-sm-2 col-12">
@@ -29,7 +27,19 @@ export default {
   },
 
   head() {
-    const locale = (this as any).$i18n.locale
+    const locale = (() => {
+      const lang = (this as any).$i18n.locale
+
+      switch (lang) {
+        case 'en':
+        case 'ko':
+          return 'en'
+        case 'zh':
+          return 'zh'
+        default:
+          return 'en'
+      }
+    })()
     const isCN = locale === 'zh'
     const appName = isCN ? '使用手册' : 'Handbook'
 
@@ -172,7 +182,7 @@ body {
     border-bottom: 1px solid #eee;
   }
 
-  h1 + h2 {
+  h1+h2 {
     margin-top: 40px;
   }
 
@@ -211,6 +221,7 @@ body {
     code {
       @apply bg-blue-200 shadow-none border-0 text-current;
     }
+
     :first-child {
       margin-top: 0;
     }
@@ -317,7 +328,7 @@ body {
         padding-left: 15px;
       }
 
-      &.toc3 + .toc2 {
+      &.toc3+.toc2 {
         margin-top: 15px;
       }
     }

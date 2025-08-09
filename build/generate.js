@@ -5,7 +5,7 @@ const fs = require('fs')
 const websitePath = path.resolve(__dirname, '../../echarts-website')
 
 async function updateNav() {
-  for (let locale of ['zh', 'en']) {
+  for (let locale of ['ko', 'en']) {
     const localPath = `${websitePath}/${locale}/nav.html`
     const targetPath = path.join(
       __dirname,
@@ -21,9 +21,9 @@ async function updateNav() {
         'Fetching...',
         `https://echarts.apache.org/${locale}/nav.html`
       )
-      navContent = (await fetch(
+      navContent = await fetch(
         `https://echarts.apache.org/${locale}/nav.html`
-      ).then(response => response.text()))
+      ).then((response) => response.text())
     }
 
     fs.writeFileSync(

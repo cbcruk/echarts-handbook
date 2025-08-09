@@ -1,0 +1,36 @@
+# 기본 선형 차트
+
+선형 차트는 기본적으로 시간에 따른 단계적 추세를 보여주는 데 사용됩니다. 선형 차트는 웹사이트 방문자 수나 판매 가격의 변동과 같은 연속적인 2D 데이터셋을 표시하는 데 매우 유용합니다.
+
+<iframe max-width="830" width="100%" height="400"
+src="https://gallery.echartsjs.com/view-lite.html?cid=xB1kG1rLEG&v=1">
+</iframe>
+
+개발되는 사물의 추세를 표시하는 것 외에도, 선형 차트는 여러 다른 데이터셋을 비교하는 데 사용될 수 있습니다. 아래에 표시된 것처럼, 우리는 세 가지 다른 상품의 판매를 비교하고 어느 것이 최고인지 분석하기 위해 선형 차트를 사용합니다.
+
+<iframe max-width="830" width="100%" height="400"
+ src="https://gallery.echartsjs.com/view-lite.html?cid=xSkBiMSU4M&v=1">>
+ </iframe>
+
+선형 차트는 데이터 포인트를 선으로 연결하여 그립니다. 특수 효과의 아름다움을 위해 위 차트에서 보여지는 것처럼 점들을 곡선으로 연결할 수도 있습니다. 이 차트는 곡선 차트나 스플라인 차트라고도 불립니다. 스플라인 차트의 사용법은 선형 차트와 동일합니다. 유일한 차이점은 데이터 포인트 사이의 연결이 직선이 아닌 곡선이라는 것입니다.
+
+## 선형 차트 사용 제안
+
+1. 데이터 가독성을 확보하기 위해, 데이터 선과 축을 구분할 수 있다면 차트에서 실선을 사용하세요.
+
+2. 차트에 4개 이상의 선을 그리지 마세요. 아래에 표시된 것처럼, 선들이 명확한 대비 없이 얽혀 있어 전체 차트를 혼란스럽고 읽기 어렵게 만듭니다.
+
+<iframe max-width="830" width="100%" height="400"
+src="https://gallery.echartsjs.com/view-lite.html?cid=xBJzdEItVz&v=1">
+</iframe>
+
+3. 차트를 구분하기 위해 장식을 사용하지 마세요. 범례는 도움이 되지만, 때로는 사용자의 주의를 산만하게 합니다:
+
+<iframe max-width="830" width="100%" height="400"
+src="https://gallery.echartsjs.com/view-lite.html?cid=xS1Tbdr8EG&v=1">
+</iframe>
+
+4. 선형 차트의 데이터를 표시할 때, 의도적으로 추세를 왜곡하는 것을 피하세요. 의미 있는 변동성 분석 차트는 항목의 높이가 y축 높이의 3분의 2가 되도록 해야 합니다.
+
+<img max-width="830" width="100%" height="100%"
+src="images/design/line/line01.jpg"></img>
