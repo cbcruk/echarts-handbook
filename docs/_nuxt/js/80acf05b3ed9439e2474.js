@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[76],{375:function(n,e,t){"use strict";t.r(e),e.default='# 영감 얻기\n\n다음 목록은 "차트를 어떻게 디자인해야 할지 모르겠다" 또는 "Apache ECharts를 사용해서 특정 효과를 어떻게 구현해야 할지 모르겠다"는 질문이 있을 때 아이디어를 제공합니다.\n\n- [Apache ECharts 공식 예제](${mainSitePath}/examples)\n- 이 핸드북의 "사용 가이드 - 일반적인 차트"\n'}}]);
